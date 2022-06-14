@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.semsofs.foodarchitectmvvm.api.MealInstance
 import com.semsofs.foodarchitectmvvm.api.MealInterface
-import com.semsofs.foodarchitectmvvm.databinding.ActivityMainBinding
 import com.semsofs.foodarchitectmvvm.model.Meal
 import com.semsofs.foodarchitectmvvm.model.RandomMeal
 import retrofit2.Call
