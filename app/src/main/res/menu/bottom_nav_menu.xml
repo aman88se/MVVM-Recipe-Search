@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Recipe"
+        android:icon="@drawable/cooking"
+        android:iconTint="#FFC400"/>
+
+    <item android:title="Favorite"
+        android:icon="@drawable/star"
+        android:iconTint="#FFC400"/>
+
+</menu>
