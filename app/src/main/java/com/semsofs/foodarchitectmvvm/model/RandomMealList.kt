@@ -1,5 +1,5 @@
 package com.semsofs.foodarchitectmvvm.model
 
-data class RandomMeal(
+data class RandomMealList(
     val meals: List<Meal>
 )
