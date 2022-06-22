@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.semsofs.foodarchitectmvvm.HomeFragment"
+        android:name="com.semsofs.foodarchitectmvvm.Fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/favoriteRecipeFragment"
-        android:name="com.semsofs.foodarchitectmvvm.FavoriteRecipeFragment"
+        android:name="com.semsofs.foodarchitectmvvm.Fragments.FavoriteRecipeFragment"
         android:label="fragment_favorite_recipe"
         tools:layout="@layout/fragment_favorite_recipe" />
 </navigation>

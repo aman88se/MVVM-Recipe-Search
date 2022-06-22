@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Recipe"
-        android:icon="@drawable/cooking"
-        android:iconTint="#FFC400"/>
+        android:icon="@drawable/recipe"
+        android:id="@+id/homeFragment"/>
 
     <item android:title="Favorite"
         android:icon="@drawable/star"
-        android:iconTint="#FFC400"/>
+        android:id="@+id/favoriteRecipeFragment"/>
 
 </menu>
