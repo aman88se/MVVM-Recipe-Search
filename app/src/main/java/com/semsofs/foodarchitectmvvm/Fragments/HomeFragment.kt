@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -30,7 +31,7 @@ class HomeFragment : Fragment() {
     lateinit var viewModel: HomeFragViewModel
     private val retrofitService = MealInterface.getInstance()
 
-    val adapter = CategoryListAdapter()
+    lateinit var categoryListAdapter: CategoryListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,11 +57,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.categoryRecyclerView.adapter = adapter
-
-        val layoutManager = LinearLayoutManager(this.context,LinearLayoutManager.HORIZONTAL,false)
-        binding.categoryRecyclerView.layoutManager = layoutManager
-
 
 
         viewModel.getAllMeals()
@@ -71,41 +67,24 @@ class HomeFragment : Fragment() {
 
         })
 
+
+        CategoryRecyclerView()
+
         viewModel.getAllCategory()
-        viewModel.mealCategoryList.observe(viewLifecycleOwner,{
+        viewModel.mealCategoryList.observe(viewLifecycleOwner,{ categories ->
 
-            adapter.setMealList(it)
+                categoryListAdapter.setCategoryList(categories)
+
         })
+    }
 
+    private fun CategoryRecyclerView() {
 
-
-
-
-//        MealInstance.api.getAllMeals().enqueue(object : Callback<RandomMealList>{
-//            override fun onResponse(
-//                call: Call<RandomMealList>,
-//                response: Response<RandomMealList>
-//            ) {
-//                if (response.body() != null){
-//
-//                    val randomMeal: Meal = response.body()!!.meals[0]
-//                    Glide.with(this@HomeFragment)
-//                        .load(randomMeal.strMealThumb)
-//                        .into(binding.randomMealImage)
-//
-//                }else{
-//                    return
-//                }
-//            }
-
-//            override fun onFailure(call: Call<RandomMealList>, t: Throwable) {
-//                Log.d("Failed",t.message.toString())
-//            }
-//
-//
-//        })
-
-
+        categoryListAdapter = CategoryListAdapter()
+        binding.categoryRecyclerView.apply {
+            layoutManager = GridLayoutManager(context,1,GridLayoutManager.HORIZONTAL,false)
+            adapter = categoryListAdapter
+        }
 
     }
 

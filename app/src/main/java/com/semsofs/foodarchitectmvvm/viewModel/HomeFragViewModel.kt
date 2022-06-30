@@ -1,5 +1,6 @@
 package com.semsofs.foodarchitectmvvm.viewModel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,7 +17,8 @@ class HomeFragViewModel(private val repository: MealRepository ): ViewModel() {
 
     val mealList = MutableLiveData<Meal>()
     val mealCategoryList = MutableLiveData<List<Category>>()
-    val errorMessage = MutableLiveData<String>()
+
+
 
 
 
@@ -24,11 +26,16 @@ class HomeFragViewModel(private val repository: MealRepository ): ViewModel() {
         val response = repository.getAllCategory()
         response.enqueue(object : Callback<CategoryList>{
             override fun onResponse(call: Call<CategoryList>, response: Response<CategoryList>) {
-               val category: Category = response.body()!!.categories[0]
-                mealCategoryList.value = listOf(category)
+
+                response.body()?.let { categoryList ->
+                    mealCategoryList.value = response.body()!!.categories
+                }
+
             }
             override fun onFailure(call: Call<CategoryList>, t : Throwable) {
-                errorMessage.postValue(t.message)
+
+                Log.e("HomeFragViewModel",t.message.toString())
+
             }
 
 
@@ -50,7 +57,7 @@ class HomeFragViewModel(private val repository: MealRepository ): ViewModel() {
 
             override fun onFailure(call: Call<RandomMealList>, t: Throwable) {
 
-                errorMessage.postValue(t.message)
+
 
             }
 
