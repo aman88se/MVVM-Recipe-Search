@@ -17,23 +17,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="350dp"
-                android:textSize="30dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_height="match_parent"
-                android:text="Kurashiru"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp">
 
-            <ImageView
-                android:id="@+id/searchRecipe"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_baseline_search_24"/>
+                <androidx.appcompat.widget.SearchView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"/>
+
+
+            </androidx.cardview.widget.CardView>
+
 
         </LinearLayout>
 
@@ -43,12 +41,13 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/randomMealCard"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                app:cardElevation="20dp"
+                android:layout_height="225dp"
+                app:cardElevation="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginTop="75dp"
+                android:layout_marginTop="85dp"
                 app:cardCornerRadius="18dp">
 
 
@@ -65,7 +64,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="340dp"
+            android:layout_marginTop="325dp"
             android:orientation="vertical">
 
             <TextView

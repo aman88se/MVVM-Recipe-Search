@@ -19,9 +19,6 @@ class HomeFragViewModel(private val repository: MealRepository ): ViewModel() {
     val mealCategoryList = MutableLiveData<List<Category>>()
 
 
-
-
-
     fun getAllCategory(){
         val response = repository.getAllCategory()
         response.enqueue(object : Callback<CategoryList>{

@@ -1,5 +1,6 @@
 package com.semsofs.foodarchitectmvvm.Fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,10 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.semsofs.foodarchitectmvvm.R
 import com.semsofs.foodarchitectmvvm.adapter.CategoryListAdapter
 import com.semsofs.foodarchitectmvvm.api.MealInstance
 import com.semsofs.foodarchitectmvvm.api.MealInterface
@@ -52,10 +56,19 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater,container,false)
         return binding.root
 
+
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.randomMealCard.setOnClickListener {
+
+            Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_randomMealFragment)
+        }
+
 
 
 
