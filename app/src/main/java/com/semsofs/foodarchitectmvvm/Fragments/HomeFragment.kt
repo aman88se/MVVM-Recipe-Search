@@ -95,7 +95,7 @@ class HomeFragment : Fragment() {
 
         categoryListAdapter = CategoryListAdapter()
         binding.categoryRecyclerView.apply {
-            layoutManager = GridLayoutManager(context,1,GridLayoutManager.HORIZONTAL,false)
+            layoutManager = GridLayoutManager(context,1,GridLayoutManager.HORIZONTAL,true)
             adapter = categoryListAdapter
         }
 

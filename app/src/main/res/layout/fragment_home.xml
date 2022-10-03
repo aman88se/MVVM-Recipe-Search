@@ -21,12 +21,14 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
+                android:layout_margin="10dp"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="20dp">
 
                 <androidx.appcompat.widget.SearchView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    app:queryHint="レシピ検索"
                     android:layout_margin="10dp"/>
 
 
