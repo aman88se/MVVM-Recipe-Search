@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.semsofs.foodarchitectmvvm.R
+import com.semsofs.foodarchitectmvvm.RandomMealDetailActivity
 import com.semsofs.foodarchitectmvvm.adapter.CategoryListAdapter
 import com.semsofs.foodarchitectmvvm.api.MealInstance
 import com.semsofs.foodarchitectmvvm.api.MealInterface
@@ -34,16 +35,24 @@ class HomeFragment : Fragment() {
     private val TAG = "HomeFragment"
     lateinit var viewModel: HomeFragViewModel
     private val retrofitService = MealInterface.getInstance()
-
     lateinit var categoryListAdapter: CategoryListAdapter
+
+    private lateinit var randomMeal: Meal
+
+    companion object{
+
+        const val MEALID = "com.semsofs.foodarchitectmvvm.Fragments.idMeal"
+        const val MEALNAME = "com.semsofs.foodarchitectmvvm.Fragments.nameMeal"
+        const val MEALTHUMB = "com.semsofs.foodarchitectmvvm.Fragments.thumbMeal"
+
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         viewModel = ViewModelProvider(this,HomeFragViewModelProvider(MealRepository(retrofitService)))
             .get(HomeFragViewModel::class.java)
-
-
 
 
     }
@@ -65,18 +74,30 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.randomMealCard.setOnClickListener {
+            val intent = Intent(this@HomeFragment.requireContext(),RandomMealDetailActivity::class.java)
 
-            Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_randomMealFragment)
+//            intent.putExtra(MEALID,randomMeal.idMeal)
+//            intent.putExtra(MEALNAME,randomMeal.strMeal)
+            intent.putExtra(MEALTHUMB,randomMeal.strMealThumb)
+
+            startActivity(intent)
+
+
+
+
+
         }
 
 
 
 
         viewModel.getAllMeals()
-        viewModel.mealList.observe(viewLifecycleOwner,{
+        viewModel.mealList.observe(viewLifecycleOwner,{ meal ->
 
-            Log.d("HomeFragment","${it.idMeal}")
-            Glide.with(this).load(it.strMealThumb).into(binding.randomMealImage)
+//            Log.d("HomeFragment","${it.idMeal}")
+            Glide.with(this).load(meal!!.strMealThumb).into(binding.randomMealImage)
+
+            this.randomMeal = meal
 
         })
 
@@ -95,7 +116,7 @@ class HomeFragment : Fragment() {
 
         categoryListAdapter = CategoryListAdapter()
         binding.categoryRecyclerView.apply {
-            layoutManager = GridLayoutManager(context,1,GridLayoutManager.HORIZONTAL,true)
+            layoutManager = GridLayoutManager(context,3,GridLayoutManager.HORIZONTAL,false)
             adapter = categoryListAdapter
         }
 

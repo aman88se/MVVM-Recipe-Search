@@ -13,22 +13,10 @@
         <action
             android:id="@+id/action_homeFragment_to_favoriteRecipeFragment"
             app:destination="@id/favoriteRecipeFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_randomMealFragment"
-            app:destination="@id/randomMealFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteRecipeFragment"
         android:name="com.semsofs.foodarchitectmvvm.Fragments.FavoriteRecipeFragment"
         android:label="fragment_favorite_recipe"
         tools:layout="@layout/fragment_favorite_recipe" />
-    <fragment
-        android:id="@+id/randomMealFragment"
-        android:name="com.semsofs.foodarchitectmvvm.Fragments.RandomMealFragment"
-        android:label="fragment_random_meal"
-        tools:layout="@layout/fragment_random_meal" >
-        <action
-            android:id="@+id/action_randomMealFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
 </navigation>
