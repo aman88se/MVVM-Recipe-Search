@@ -28,8 +28,7 @@
                 <androidx.appcompat.widget.SearchView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:queryHint="レシピ検索"
-                    android:autofillHints="Recipe"
+                    app:queryHint="レシピ"
                     android:layout_margin="10dp"/>
 
 
@@ -75,8 +74,9 @@
                 android:layout_height="wrap_content"
                 android:text="Categories"
                 android:gravity="center"
+                android:fontFamily="@font/bagiste"
                 android:textStyle="bold"
-                android:textSize="28sp"
+                android:textSize="26sp"
                 android:textColor="@color/black"/>
 
             <androidx.recyclerview.widget.RecyclerView

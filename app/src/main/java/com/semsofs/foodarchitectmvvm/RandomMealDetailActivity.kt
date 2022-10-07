@@ -10,7 +10,9 @@ import com.semsofs.foodarchitectmvvm.databinding.ActivityRandomMealDetailBinding
 
 class RandomMealDetailActivity : AppCompatActivity() {
 
+    private lateinit var mealName: String
     private lateinit var mealImage: String
+    private lateinit var mealCategory: String
     private lateinit var binding: ActivityRandomMealDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +30,11 @@ class RandomMealDetailActivity : AppCompatActivity() {
 
         val intent = intent
         mealImage = intent.getStringExtra(HomeFragment.MEALTHUMB)!!
+        mealName = intent.getStringExtra(HomeFragment.MEALNAME)!!
+        mealCategory = intent.getStringExtra(HomeFragment.MEALCATEGORY)!!
 
+        binding.randomMealName.text = mealName
+        binding.randomMealCategory.text = mealCategory
         Glide.with(this).load(mealImage).into(binding.randomMealImageDetail)
 
     }

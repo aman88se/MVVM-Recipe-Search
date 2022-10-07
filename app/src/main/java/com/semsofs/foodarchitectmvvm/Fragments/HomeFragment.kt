@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
 
     companion object{
 
-        const val MEALID = "com.semsofs.foodarchitectmvvm.Fragments.idMeal"
+        const val MEALCATEGORY = "com.semsofs.foodarchitectmvvm.Fragments.categoryMeal"
         const val MEALNAME = "com.semsofs.foodarchitectmvvm.Fragments.nameMeal"
         const val MEALTHUMB = "com.semsofs.foodarchitectmvvm.Fragments.thumbMeal"
 
@@ -76,8 +76,8 @@ class HomeFragment : Fragment() {
         binding.randomMealCard.setOnClickListener {
             val intent = Intent(this@HomeFragment.requireContext(),RandomMealDetailActivity::class.java)
 
-//            intent.putExtra(MEALID,randomMeal.idMeal)
-//            intent.putExtra(MEALNAME,randomMeal.strMeal)
+            intent.putExtra(MEALCATEGORY,randomMeal.strCategory)
+            intent.putExtra(MEALNAME,randomMeal.strMeal)
             intent.putExtra(MEALTHUMB,randomMeal.strMealThumb)
 
             startActivity(intent)
