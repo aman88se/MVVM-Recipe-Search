@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".RandomMealDetailActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:background="#978484">
+
+            <ImageView
+                android:id="@+id/randomMealImageDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/randomMealName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textStyle="bold"
+                android:fontFamily="@font/bagiste"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="190dp"/>
+
+            <!--        <androidx.appcompat.widget.Toolbar-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content">-->
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/backToHome"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:src="@drawable/ic_baseline_arrow_back_ios_24"/>-->
+
+
+            <!--        </androidx.appcompat.widget.Toolbar>-->
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/randomMealCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="240dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/fantasik"
+            android:layout_marginStart="8dp"
+            android:text="@string/app_name"/>
+
+
+
+    </FrameLayout>
+</layout>

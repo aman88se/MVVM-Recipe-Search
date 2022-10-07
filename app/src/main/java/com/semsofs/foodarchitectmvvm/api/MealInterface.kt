@@ -1,5 +1,6 @@
 package com.semsofs.foodarchitectmvvm.api
 
+import com.semsofs.foodarchitectmvvm.model.CategoryList
 import com.semsofs.foodarchitectmvvm.model.Meal
 import com.semsofs.foodarchitectmvvm.model.RandomMealList
 import retrofit2.Call
@@ -13,18 +14,21 @@ interface MealInterface {
     @GET("random.php")
     fun getAllMeals(): Call<RandomMealList>
 
-//    companion object {
-//        var retrofitService: MealInterface? = null
-//
-//        fun getInstance() : MealInterface {
-//            if (retrofitService == null) {
-//                val retrofit = Retrofit.Builder()
-//                    .baseUrl("https://www.themealdb.com/api/json/v1/1/")
-//                    .addConverterFactory(GsonConverterFactory.create())
-//                    .build()
-//                retrofitService = retrofit.create(MealInterface::class.java)
-//            }
-//            return retrofitService!!
-//        }
-//    }
+    @GET("categories.php")
+    fun getAllCategories() : Call<CategoryList>
+
+    companion object {
+        var retrofitService: MealInterface? = null
+
+        fun getInstance() : MealInterface {
+            if (retrofitService == null) {
+                val retrofit = Retrofit.Builder()
+                    .baseUrl("https://www.themealdb.com/api/json/v1/1/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+                retrofitService = retrofit.create(MealInterface::class.java)
+            }
+            return retrofitService!!
+        }
+    }
 }

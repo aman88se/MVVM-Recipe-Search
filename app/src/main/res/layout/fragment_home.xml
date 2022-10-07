@@ -13,30 +13,27 @@
         android:layout_height="match_parent"
         tools:context=".Fragments.HomeFragment">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-        </ScrollView>
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:queryHint="食材・材料名でレシピをさがす"
-                android:iconifiedByDefault="false"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/search_view_bcg"
-                android:queryBackground="@android:color/transparent" />
+                android:layout_margin="10dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="20dp">
+
+                <androidx.appcompat.widget.SearchView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:queryHint="レシピ"
+                    android:layout_margin="10dp"/>
+
+
+            </androidx.cardview.widget.CardView>
+
 
         </LinearLayout>
 
@@ -46,12 +43,13 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/randomMealCard"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                app:cardElevation="20dp"
+                android:layout_height="225dp"
+                app:cardElevation="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="65dp"
                 app:cardCornerRadius="18dp">
 
 
@@ -68,7 +66,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="340dp"
+            android:layout_marginTop="300dp"
             android:orientation="vertical">
 
             <TextView
@@ -76,11 +74,13 @@
                 android:layout_height="wrap_content"
                 android:text="Categories"
                 android:gravity="center"
+                android:fontFamily="@font/bagiste"
                 android:textStyle="bold"
-                android:textSize="30sp"
+                android:textSize="26sp"
                 android:textColor="@color/black"/>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoryRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
