@@ -47,10 +47,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="225dp"
                 app:cardElevation="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
                 android:layout_marginTop="65dp"
-                app:cardCornerRadius="18dp">
+                app:cardCornerRadius="12dp">
 
 
                 <ImageView
@@ -76,7 +76,7 @@
                 android:gravity="center"
                 android:fontFamily="@font/bagiste"
                 android:textStyle="bold"
-                android:textSize="26sp"
+                android:textSize="22sp"
                 android:textColor="@color/black"/>
 
             <androidx.recyclerview.widget.RecyclerView
