@@ -21,7 +21,8 @@ class RandomMealDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRandomMealDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        
+        //change status bar
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             val w = window
             w.setFlags(
