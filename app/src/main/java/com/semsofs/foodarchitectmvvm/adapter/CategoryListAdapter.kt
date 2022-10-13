@@ -26,8 +26,6 @@ class CategoryListAdapter : RecyclerView.Adapter<CategoryListAdapter.MealViewHol
 
 
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealViewHolder {
 
         return MealViewHolder(

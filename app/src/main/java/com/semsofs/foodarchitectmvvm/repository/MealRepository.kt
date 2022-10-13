@@ -8,6 +8,8 @@ class MealRepository(private val mealInterface: MealInterface) {
 
     fun getAllCategory() = mealInterface.getAllCategories()
 
+    fun getPopularMeals() = mealInterface.getPopularMeals("Seafood")
+
 
 
 }

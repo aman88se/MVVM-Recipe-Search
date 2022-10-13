@@ -2,26 +2,19 @@ package com.semsofs.foodarchitectmvvm.Fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.semsofs.foodarchitectmvvm.R
 import com.semsofs.foodarchitectmvvm.RandomMealDetailActivity
 import com.semsofs.foodarchitectmvvm.adapter.CategoryListAdapter
-import com.semsofs.foodarchitectmvvm.api.MealInstance
+import com.semsofs.foodarchitectmvvm.adapter.PopularMealAdapter
 import com.semsofs.foodarchitectmvvm.api.MealInterface
 import com.semsofs.foodarchitectmvvm.databinding.FragmentHomeBinding
 import com.semsofs.foodarchitectmvvm.model.Meal
-import com.semsofs.foodarchitectmvvm.model.RandomMealList
 import com.semsofs.foodarchitectmvvm.repository.MealRepository
 import com.semsofs.foodarchitectmvvm.viewModel.HomeFragViewModel
 import com.semsofs.foodarchitectmvvm.viewModel.HomeFragViewModelProvider
@@ -36,12 +29,13 @@ class HomeFragment : Fragment() {
     lateinit var viewModel: HomeFragViewModel
     private val retrofitService = MealInterface.getInstance()
     lateinit var categoryListAdapter: CategoryListAdapter
+    lateinit var popularMealAdapter: PopularMealAdapter
 
     private lateinit var randomMeal: Meal
 
     companion object{
 
-//        const val MEALCATEGORY = "com.semsofs.foodarchitectmvvm.Fragments.categoryMeal"
+//        const val MEALINSTRUCTION = "com.semsofs.foodarchitectmvvm.Fragments.instMeal"
         const val MEALNAME = "com.semsofs.foodarchitectmvvm.Fragments.nameMeal"
         const val MEALTHUMB = "com.semsofs.foodarchitectmvvm.Fragments.thumbMeal"
 
@@ -79,6 +73,7 @@ class HomeFragment : Fragment() {
 //            v
             intent.putExtra(MEALNAME,randomMeal.strMeal)
             intent.putExtra(MEALTHUMB,randomMeal.strMealThumb)
+//            intent.putExtra(MEALINSTRUCTION, randomMeal.strIngredient1)
 
             startActivity(intent)
 
@@ -96,11 +91,21 @@ class HomeFragment : Fragment() {
 
 
         CategoryRecyclerView()
+        PopularMealRecyclerView()
 
         viewModel.getAllCategory()
         viewModel.mealCategoryList.observe(viewLifecycleOwner,{ categories ->
 
                 categoryListAdapter.setCategoryList(categories)
+
+        })
+
+
+
+        viewModel.getPopularItems()
+        viewModel.popularMealList.observe(viewLifecycleOwner,{popularItems ->
+
+            popularMealAdapter.setPopularMealList(popularItems)
 
         })
     }
@@ -109,8 +114,18 @@ class HomeFragment : Fragment() {
 
         categoryListAdapter = CategoryListAdapter()
         binding.categoryRecyclerView.apply {
-            layoutManager = GridLayoutManager(context,3,GridLayoutManager.HORIZONTAL,false)
+            layoutManager = GridLayoutManager(context,2,GridLayoutManager.HORIZONTAL,false)
             adapter = categoryListAdapter
+        }
+
+    }
+
+    private fun PopularMealRecyclerView(){
+
+        popularMealAdapter = PopularMealAdapter()
+        binding.popularItemRecyclerView.apply {
+            layoutManager = GridLayoutManager(context,1,GridLayoutManager.HORIZONTAL,false)
+            adapter = popularMealAdapter
         }
 
     }
