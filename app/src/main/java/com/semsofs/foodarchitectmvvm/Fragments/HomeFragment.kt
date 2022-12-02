@@ -35,9 +35,9 @@ class HomeFragment : Fragment() {
 
     companion object{
 
-//        const val MEALINSTRUCTION = "com.semsofs.foodarchitectmvvm.Fragments.instMeal"
-        const val MEALNAME = "com.semsofs.foodarchitectmvvm.Fragments.nameMeal"
-        const val MEALTHUMB = "com.semsofs.foodarchitectmvvm.Fragments.thumbMeal"
+        const val MEALVIDEO = "com.semsofs.foodarchitectmvvm.Fragments.mealVideo"
+//        const val MEALNAME = "com.semsofs.foodarchitectmvvm.Fragments.nameMeal"
+//        const val MEALTHUMB = "com.semsofs.foodarchitectmvvm.Fragments.thumbMeal"
 
 
     }
@@ -71,9 +71,9 @@ class HomeFragment : Fragment() {
             val intent = Intent(this@HomeFragment.requireContext(),RandomMealDetailActivity::class.java)
 
 //            v
-            intent.putExtra(MEALNAME,randomMeal.strMeal)
-            intent.putExtra(MEALTHUMB,randomMeal.strMealThumb)
-//            intent.putExtra(MEALINSTRUCTION, randomMeal.strIngredient1)
+//            intent.putExtra(MEALNAME,randomMeal.strMeal)
+//            intent.putExtra(MEALTHUMB,randomMeal.strMealThumb)
+            intent.putExtra(MEALVIDEO, randomMeal.strYoutube)
 
             startActivity(intent)
 

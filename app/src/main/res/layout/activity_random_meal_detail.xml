@@ -15,26 +15,39 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="280dp"
-            android:gravity="center"
             android:background="#978484">
 
-            <ImageView
-                android:id="@+id/randomMealImageDetail"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"/>
 
-            <TextView
-                android:id="@+id/randomMealName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textStyle="bold"
-                android:fontFamily="@font/bagiste"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:textAlignment="center"
-                android:layout_marginTop="200dp"/>
+
+        <com.google.android.youtube.player.YouTubePlayerView
+            android:id="@+id/youtubePlayer"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            app:autoPlay="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+
+
+
+
+
+<!--            <ImageView-->
+<!--                android:id="@+id/randomMealImageDetail"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/randomMealName"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/app_name"-->
+<!--                android:textStyle="bold"-->
+<!--                android:fontFamily="@font/bagiste"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="24sp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:layout_marginTop="200dp"/>-->
 
 
             <!--        <androidx.appcompat.widget.Toolbar-->
@@ -84,6 +97,7 @@
 <!--            android:textColor="@color/black"-->
 <!--            android:textStyle="bold"-->
 <!--            android:layout_marginStart="4dp" />-->
+
 
 
     </FrameLayout>

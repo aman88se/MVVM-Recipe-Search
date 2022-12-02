@@ -1,5 +1,7 @@
 package com.semsofs.foodarchitectmvvm.api
 
+import com.semsofs.foodarchitectmvvm.Fragments.HomeFragment
+import com.semsofs.foodarchitectmvvm.databinding.FragmentHomeBinding
 import com.semsofs.foodarchitectmvvm.model.CategoryList
 import com.semsofs.foodarchitectmvvm.model.Meal
 import com.semsofs.foodarchitectmvvm.model.PopularMealList
@@ -12,6 +14,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MealInterface {
+
 
     @GET("random.php")
     fun getAllMeals(): Call<RandomMealList>
