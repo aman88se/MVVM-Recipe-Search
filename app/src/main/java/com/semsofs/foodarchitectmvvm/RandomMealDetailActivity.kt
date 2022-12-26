@@ -56,7 +56,7 @@ class RandomMealDetailActivity : YouTubeBaseActivity(){
         val intent = intent
 //        mealImage = intent.getStringExtra(HomeFragment.MEALTHUMB)!!
 //        mealName = intent.getStringExtra(HomeFragment.MEALNAME)!!
-//        strInstruction = intent.getStringExtra(HomeFragment.INSTRUCTIONS)!!
+        strInstruction = intent.getStringExtra(HomeFragment.INSTRUCTIONS)!!
         mealVideo = intent.getStringExtra(HomeFragment.MEALVIDEO)!!
 
 
@@ -88,7 +88,7 @@ class RandomMealDetailActivity : YouTubeBaseActivity(){
         //Play youtube video
         binding.youtubeApiView.initialize(API_KEY,youtubePlayerInit)
 
-//        binding.Instructions.text = strInstruction
+        binding.Instructions.text = strInstruction
 
 
 
