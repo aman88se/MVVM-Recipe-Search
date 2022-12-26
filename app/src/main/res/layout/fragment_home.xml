@@ -77,7 +77,7 @@
                     android:id="@+id/categoryTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Breakfast"
+                    android:text="シーフード"
                     android:fontFamily="@font/fantasik"
                     android:textStyle="bold"
                     android:textAlignment="center"
@@ -92,7 +92,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Categories"
+                    android:text="カテゴリー"
                     android:fontFamily="@font/bagiste"
                     android:textStyle="bold"
                     android:textAlignment="center"
