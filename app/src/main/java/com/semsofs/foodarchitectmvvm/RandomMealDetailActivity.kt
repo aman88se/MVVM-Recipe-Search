@@ -10,17 +10,19 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.semsofs.foodarchitectmvvm.Fragments.HomeFragment
 import com.semsofs.foodarchitectmvvm.databinding.ActivityRandomMealDetailBinding
+import com.semsofs.foodarchitectmvvm.databinding.YoutubePlayerBinding
 
 
-class RandomMealDetailActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener {
+class RandomMealDetailActivity : YouTubeBaseActivity(){
 
     private lateinit var mealName: String
     private lateinit var mealImage: String
     private lateinit var mealVideo: String
-    private lateinit var binding: ActivityRandomMealDetailBinding
+    private lateinit var strInstruction: String
+
+    private lateinit var binding: YoutubePlayerBinding
 
     lateinit var youtubePlayerInit: YouTubePlayer.OnInitializedListener
     val API_KEY = "AIzaSyBKny9_AED8jotLZvQMI6DM8IcsSgdzAks"
@@ -29,7 +31,7 @@ class RandomMealDetailActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitiali
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRandomMealDetailBinding.inflate(layoutInflater)
+        binding = YoutubePlayerBinding.inflate(layoutInflater)
         setContentView(binding.root)
         
         //change status bar
@@ -54,16 +56,40 @@ class RandomMealDetailActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitiali
         val intent = intent
 //        mealImage = intent.getStringExtra(HomeFragment.MEALTHUMB)!!
 //        mealName = intent.getStringExtra(HomeFragment.MEALNAME)!!
+//        strInstruction = intent.getStringExtra(HomeFragment.INSTRUCTIONS)!!
         mealVideo = intent.getStringExtra(HomeFragment.MEALVIDEO)!!
+
 
         val mealVideoId = mealVideo.substring(32)
 
 
         //YoutubePlayerView
 
-        binding.youtubePlayer.setOnClickListener {
-            binding.youtubePlayer.initialize(API_KEY, this)
+        youtubePlayerInit = object : YouTubePlayer.OnInitializedListener{
+            override fun onInitializationSuccess(
+                p0: YouTubePlayer.Provider?,
+                p1: YouTubePlayer?,
+                p2: Boolean
+            ) {
+                p1?.loadVideo(mealVideoId)
+                p1?.play()
+            }
+
+            override fun onInitializationFailure(
+                p0: YouTubePlayer.Provider?,
+                p1: YouTubeInitializationResult?
+            ) {
+                Toast.makeText(applicationContext,"Error",Toast.LENGTH_SHORT).show()
+            }
+
+
         }
+
+        //Play youtube video
+        binding.youtubeApiView.initialize(API_KEY,youtubePlayerInit)
+
+//        binding.Instructions.text = strInstruction
+
 
 
 
@@ -91,82 +117,5 @@ class RandomMealDetailActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitiali
 //        }
 
     }
-
-    override fun onInitializationSuccess(p0: YouTubePlayer.Provider?, p1: YouTubePlayer?,
-                                         p2: Boolean
-    ) {
-        Log.d(TAG, "onInitializationSuccess: provider is ${p0?.javaClass}")
-        Log.d(TAG, "onInitializationSuccess: youTubePlayer is ${p1?.javaClass}")
-        Toast.makeText(this, "Initialized Youtube Player successfully", Toast.LENGTH_SHORT).show()
-        val mealVideoId = mealVideo.substring(32)
-
-        p1?.setPlayerStateChangeListener(playerStateChangeListener)
-        p1?.setPlaybackEventListener(playbackEventListener)
-
-        if (!p2) {
-            p1?.cueVideo(mealVideoId)
-        }
-
-
-    }
-
-    override fun onInitializationFailure(
-        p0: YouTubePlayer.Provider?,
-        p1: YouTubeInitializationResult?
-    ) {
-        val REQUEST_CODE = 0
-
-        if (p1?.isUserRecoverableError == true) {
-            p1.getErrorDialog(this, REQUEST_CODE).show()
-        } else {
-            val errorMessage = "There was an error initializing the YoutubePlayer ($p1)"
-            Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show()
-        }
-    }
-
-    private val playbackEventListener = object: YouTubePlayer.PlaybackEventListener {
-        override fun onSeekTo(p0: Int) {
-        }
-
-        override fun onBuffering(p0: Boolean) {
-        }
-
-        override fun onPlaying() {
-            Toast.makeText(this@RandomMealDetailActivity, "Good, video is playing ok", Toast.LENGTH_SHORT).show()
-        }
-
-        override fun onStopped() {
-            Toast.makeText(this@RandomMealDetailActivity, "Video has stopped", Toast.LENGTH_SHORT).show()
-        }
-
-        override fun onPaused() {
-            Toast.makeText(this@RandomMealDetailActivity, "Video has paused", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private val playerStateChangeListener = object: YouTubePlayer.PlayerStateChangeListener {
-        override fun onAdStarted() {
-            Toast.makeText(this@RandomMealDetailActivity, "Click Ad now, make the video creator rich!", Toast.LENGTH_SHORT).show()
-        }
-
-        override fun onLoading() {
-        }
-
-        override fun onVideoStarted() {
-            Toast.makeText(this@RandomMealDetailActivity, "Video has started", Toast.LENGTH_SHORT).show()
-        }
-
-        override fun onLoaded(p0: String?) {
-        }
-
-        override fun onVideoEnded() {
-            Toast.makeText(this@RandomMealDetailActivity, "Congratulations! You've completed another video.", Toast.LENGTH_SHORT).show()
-        }
-
-        override fun onError(p0: YouTubePlayer.ErrorReason?) {
-        }
-    }
-
-
 
 }

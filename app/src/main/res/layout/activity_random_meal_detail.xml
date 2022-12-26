@@ -12,20 +12,19 @@
         android:layout_height="match_parent"
         tools:context=".RandomMealDetailActivity">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:background="#978484">
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="280dp"-->
+<!--            android:background="#978484">-->
 
 
 
-        <com.google.android.youtube.player.YouTubePlayerView
-            android:id="@+id/youtubePlayer"
-            android:layout_width="match_parent"
-            android:layout_height="280dp"
-            app:autoPlay="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true" />
+<!--        <com.google.android.youtube.player.YouTubePlayerView-->
+<!--            android:id="@+id/youtubePlayer"-->
+<!--            android:layout_width="match_parent"-->
+<!--            app:autoPlay="true"-->
+<!--            android:fitsSystemWindows="true"-->
+<!--            android:layout_height="280dp"/>-->
 
 
 
@@ -63,7 +62,7 @@
 
             <!--        </androidx.appcompat.widget.Toolbar>-->
 
-        </RelativeLayout>
+<!--        </RelativeLayout>-->
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addToFavoriteButton"
