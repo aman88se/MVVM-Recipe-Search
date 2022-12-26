@@ -5,7 +5,7 @@ APIは (https://www.themealdb.com/api.php)
 
 
 <img src="RecipeHomeSS.png" width="30%" height="30%">
-<img src="Screenshot_20221209_163455.png" width="20%" height="20%">
+<img src="Screenshot_20221209_163455.png" width="30%" height="30%">
 
 
 <!-- ![Screenshot](RecipeHomeSS.png) -->
