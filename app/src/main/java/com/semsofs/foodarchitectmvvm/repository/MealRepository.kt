@@ -1,5 +1,6 @@
 package com.semsofs.foodarchitectmvvm.repository
 
+import com.semsofs.foodarchitectmvvm.Database.RecipeDatabase
 import com.semsofs.foodarchitectmvvm.api.MealInterface
 
 class MealRepository(private val mealInterface: MealInterface) {

@@ -3,13 +3,13 @@ package com.semsofs.foodarchitectmvvm.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.semsofs.foodarchitectmvvm.Database.RecipeDatabase
-import com.semsofs.foodarchitectmvvm.repository.MealRepository
 
-class HomeFragViewModelProvider(private val repository: MealRepository): ViewModelProvider.Factory {
+class RecipeViewModelProvider(private val recipeDatabase: RecipeDatabase): ViewModelProvider.Factory {
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
 
-        return if (modelClass.isAssignableFrom(HomeFragViewModel::class.java)){
-            HomeFragViewModel(this.repository) as T
+        return if (modelClass.isAssignableFrom(RecipeViewModel::class.java)){
+            RecipeViewModel(this.recipeDatabase) as T
         }else{
 
             throw IllegalAccessException("ViewModel Not Found")
