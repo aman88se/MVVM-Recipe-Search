@@ -4,6 +4,7 @@
     package="com.semsofs.foodarchitectmvvm">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <queries>
         <intent>
             <action android:name="com.google.android.youtube.api.service.START" />
@@ -21,6 +22,15 @@
         android:theme="@style/Theme.FoodArchitectMVVM"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".CategoryItemsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_category_items"
+            android:theme="@style/Theme.FoodArchitectMVVM.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".RandomMealDetailActivity"
             android:exported="false">

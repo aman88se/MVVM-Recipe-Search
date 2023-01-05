@@ -14,6 +14,7 @@ import com.semsofs.foodarchitectmvvm.model.Category
 class CategoryListAdapter : RecyclerView.Adapter<CategoryListAdapter.MealViewHolder>() {
 
     var categoryList = ArrayList<Category>()
+    var onItemClick : ((Category) -> Unit)? = null
 
     fun setCategoryList(categoryList : List<Category>){
 
@@ -39,6 +40,9 @@ class CategoryListAdapter : RecyclerView.Adapter<CategoryListAdapter.MealViewHol
 
         Glide.with(holder.itemView).load(categoryList[position].strCategoryThumb).into(holder.binding.categoryImage)
         holder.binding.categoryName.text = categoryList[position].strCategory
+        holder.itemView.setOnClickListener {
+            onItemClick!!.invoke(categoryList[position])
+        }
 
 
     }

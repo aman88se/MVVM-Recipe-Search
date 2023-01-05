@@ -19,10 +19,21 @@
                 android:layout_height="match_parent"
                 tools:context=".RandomMealDetailActivity">
 
-                <com.google.android.youtube.player.YouTubePlayerView
-                    android:id="@+id/youtubeApiView"
+                <ImageView
+                    android:id="@+id/randomMealImage"
                     android:layout_width="match_parent"
-                    android:layout_height="240dp" />
+                    android:layout_height="280dp"
+                    android:scaleType="centerCrop"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/addToFavoriteButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="220dp"
+                    android:backgroundTint="#FFEA00"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/bookmark_border"
+                    android:layout_gravity="end"/>
 
 
                 <LinearLayout
@@ -34,9 +45,11 @@
 
 
                     <TextView
+                        android:id="@+id/addToFavorite"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="手順 "
+                        android:text="Save"
+                        android:layout_marginTop="70dp"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold"

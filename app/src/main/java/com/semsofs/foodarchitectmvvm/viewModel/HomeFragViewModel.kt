@@ -4,8 +4,11 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.semsofs.foodarchitectmvvm.Database.RecipeDatabase
 import com.semsofs.foodarchitectmvvm.model.*
 import com.semsofs.foodarchitectmvvm.repository.MealRepository
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -76,6 +79,8 @@ class HomeFragViewModel(private val repository: MealRepository ): ViewModel() {
 
         })
     }
+
+
 
 
 

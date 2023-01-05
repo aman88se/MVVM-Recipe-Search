@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
+import com.semsofs.foodarchitectmvvm.CategoryItemsActivity
 import com.semsofs.foodarchitectmvvm.RandomMealDetailActivity
 import com.semsofs.foodarchitectmvvm.adapter.CategoryListAdapter
 import com.semsofs.foodarchitectmvvm.adapter.PopularMealAdapter
@@ -35,10 +36,11 @@ class HomeFragment : Fragment() {
 
     companion object{
 
-        const val MEALVIDEO = "com.semsofs.foodarchitectmvvm.Fragments.mealVideo"
+//        const val MEALVIDEO = "com.semsofs.foodarchitectmvvm.Fragments.mealVideo"
         const val INSTRUCTIONS = "com.semsofs.foodarchitectmvvm.Fragments.Instructions"
 //        const val MEALNAME = "com.semsofs.foodarchitectmvvm.Fragments.nameMeal"
-//        const val MEALTHUMB = "com.semsofs.foodarchitectmvvm.Fragments.thumbMeal"
+        const val MEALTHUMB = "com.semsofs.foodarchitectmvvm.Fragments.thumbMeal"
+        const val MEALID = "com.semsofs.foodarchitectmvvm.Fragments.mealId"
 
 
     }
@@ -73,9 +75,10 @@ class HomeFragment : Fragment() {
 
 //            v
 //            intent.putExtra(MEALNAME,randomMeal.strMeal)
-//            intent.putExtra(MEALTHUMB,randomMeal.strMealThumb)
-            intent.putExtra(MEALVIDEO, randomMeal.strYoutube)
+            intent.putExtra(MEALTHUMB,randomMeal.strMealThumb)
+//            intent.putExtra(MEALVIDEO, randomMeal.strYoutube)
             intent.putExtra(INSTRUCTIONS, randomMeal.strInstructions)
+            intent.putExtra(MEALID, randomMeal.idMeal)
 
             startActivity(intent)
 
@@ -93,6 +96,10 @@ class HomeFragment : Fragment() {
 
 
         CategoryRecyclerView()
+        categoryListAdapter.onItemClick = {category ->
+            val intent = Intent(activity, CategoryItemsActivity::class.java)
+            startActivity(intent)
+        }
         PopularMealRecyclerView()
 
         viewModel.getAllCategory()

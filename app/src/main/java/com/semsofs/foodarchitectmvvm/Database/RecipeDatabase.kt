@@ -5,26 +5,31 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.semsofs.foodarchitectmvvm.model.Meal
 
 @Database(entities = [Meal::class], version = 1)
 @TypeConverters(RecipeTypeConverter::class)
 abstract class RecipeDatabase: RoomDatabase() {
+
     abstract fun recipeDao(): RecipeDao
 
-    companion object{
-        @Volatile
-        var INSTANCE: RecipeDatabase? = null
 
-        @Synchronized
-        fun getInstance(context: Context): RecipeDatabase{
-            if (INSTANCE == null){
-                INSTANCE = Room.databaseBuilder(
-                    context,RecipeDatabase::class.java,"meal.db"
-                ).fallbackToDestructiveMigration().build()
+
+        companion object{
+            @Volatile
+            var INSTANCE: RecipeDatabase? = null
+
+            @Synchronized
+            fun getInstance(context: Context): RecipeDatabase{
+                if (INSTANCE == null){
+                    INSTANCE = Room.databaseBuilder(
+                        context,RecipeDatabase::class.java,"meal.db"
+                    ).fallbackToDestructiveMigration().build()
+                }
+                return INSTANCE as RecipeDatabase
             }
-            return INSTANCE as RecipeDatabase
-        }
 
 
     }

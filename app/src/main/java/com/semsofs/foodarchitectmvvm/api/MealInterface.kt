@@ -22,6 +22,9 @@ interface MealInterface {
     @GET("categories.php")
     fun getAllCategories() : Call<CategoryList>
 
+    @GET("lookup.php")
+    fun getRecipeDetails(@Query("i") id: String) : Call<RandomMealList>
+
     @GET("filter.php?")
     fun getPopularMeals(@Query("c") Category: String): Call<PopularMealList>
 
