@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
+import com.semsofs.foodarchitectmvvm.CategoryItemsActivity
 import com.semsofs.foodarchitectmvvm.RandomMealDetailActivity
 import com.semsofs.foodarchitectmvvm.adapter.CategoryListAdapter
 import com.semsofs.foodarchitectmvvm.adapter.PopularMealAdapter
@@ -95,6 +96,10 @@ class HomeFragment : Fragment() {
 
 
         CategoryRecyclerView()
+        categoryListAdapter.onItemClick = {category ->
+            val intent = Intent(activity, CategoryItemsActivity::class.java)
+            startActivity(intent)
+        }
         PopularMealRecyclerView()
 
         viewModel.getAllCategory()
