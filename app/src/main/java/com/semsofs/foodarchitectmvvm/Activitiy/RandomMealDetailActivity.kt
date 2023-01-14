@@ -1,17 +1,13 @@
-package com.semsofs.foodarchitectmvvm
+package com.semsofs.foodarchitectmvvm.Activitiy
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.youtube.player.YouTubeBaseActivity
-import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.semsofs.foodarchitectmvvm.Database.RecipeDatabase
 import com.semsofs.foodarchitectmvvm.Fragments.HomeFragment

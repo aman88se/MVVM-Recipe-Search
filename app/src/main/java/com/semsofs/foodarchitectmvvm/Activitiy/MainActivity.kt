@@ -1,11 +1,11 @@
-package com.semsofs.foodarchitectmvvm
+package com.semsofs.foodarchitectmvvm.Activitiy
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.semsofs.foodarchitectmvvm.R
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        val navigationController = Navigation.findNavController(this,R.id.home)
+        val navigationController = Navigation.findNavController(this, R.id.home)
 
         NavigationUI.setupWithNavController(bottomNavigation,navigationController)
 

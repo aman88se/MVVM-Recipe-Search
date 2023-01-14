@@ -2,10 +2,7 @@ package com.semsofs.foodarchitectmvvm.api
 
 import com.semsofs.foodarchitectmvvm.Fragments.HomeFragment
 import com.semsofs.foodarchitectmvvm.databinding.FragmentHomeBinding
-import com.semsofs.foodarchitectmvvm.model.CategoryList
-import com.semsofs.foodarchitectmvvm.model.Meal
-import com.semsofs.foodarchitectmvvm.model.PopularMealList
-import com.semsofs.foodarchitectmvvm.model.RandomMealList
+import com.semsofs.foodarchitectmvvm.model.*
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -27,6 +24,9 @@ interface MealInterface {
 
     @GET("filter.php?")
     fun getPopularMeals(@Query("c") Category: String): Call<PopularMealList>
+
+    @GET("filter.php")
+    fun getCategoryList(@Query("c") Category: String): Call<PopularMealList>
 
     companion object {
         var retrofitService: MealInterface? = null

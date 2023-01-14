@@ -1,4 +1,4 @@
-package com.semsofs.foodarchitectmvvm
+package com.semsofs.foodarchitectmvvm.Activitiy
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.semsofs.foodarchitectmvvm.R
 import com.semsofs.foodarchitectmvvm.databinding.FragmentFirstBinding
 
 /**
