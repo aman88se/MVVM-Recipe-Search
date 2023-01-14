@@ -11,13 +11,13 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".RandomMealDetailActivity">
+            tools:context=".Activitiy.RandomMealDetailActivity">
 
             <FrameLayout
                 android:id="@+id/frameLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".RandomMealDetailActivity">
+                tools:context=".Activitiy.RandomMealDetailActivity">
 
                 <ImageView
                     android:id="@+id/randomMealImage"
